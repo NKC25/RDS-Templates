@@ -490,9 +490,10 @@
             "osDisk": {
               "createOption": "FromImage",
               "diskSizeGB": "[if(equals(parameters('rdshVmDiskSizeGB'), 0), json('null'), parameters('rdshVmDiskSizeGB'))]",
-              "managedDisk": {
-                "storageAccountType": "[variables('storageAccountType')]"
-              }
+              "diffDiskSettings": {
+                "option": "Local"
+              },
+              "caching": "ReadOnly"
             }
           },
           "networkProfile": {
