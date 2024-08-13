@@ -428,7 +428,6 @@
         "type": "Microsoft.Network/networkInterfaces",
         "name": "[concat(parameters('rdshPrefix'), add(copyindex(), parameters('vmInitialNumber')), '-nic')]",
         "location": "[parameters('location')]",
-        "extendedLocation": "[if(empty(parameters('edgeZone')), null(), variables('extendedLocation'))]",
         "tags": "[parameters('networkInterfaceTags')]",
         "copy": {
           "name": "rdsh-nic-loop",
@@ -458,7 +457,6 @@
         "type": "Microsoft.Compute/virtualMachines",
         "name": "[concat(parameters('rdshPrefix'), add(copyindex(), parameters('vmInitialNumber')))]",
         "location": "[parameters('location')]",
-        "extendedLocation": "[if(empty(parameters('edgeZone')), null(), variables('extendedLocation'))]",
         "tags": "[parameters('virtualMachineTags')]",
         "plan": "[variables('vmPlan')]",
         "copy": {
